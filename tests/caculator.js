@@ -41,6 +41,7 @@ var display = function(value) {
 }
 
 $( function() {
+    $('.btn-mark').unbind();
     $('.btn-mark').click(function() {
         var id = $(this).prop('id');
         console.log(id);
@@ -105,7 +106,7 @@ $( function() {
                 display(current);
             }
         }
-        if(id === '='){
+        if(id === 'equal'){
             latestOp = true;
             //start to compute
             //or repeat the latest oprate
@@ -153,6 +154,7 @@ $( function() {
         }
         return false;
     });
+    $('.btn-normal').unbind();
     $('.btn-normal').click(function() {
         var id = $(this).prop('id');
         console.log(id);
@@ -177,6 +179,7 @@ $( function() {
         }
         return false;
     });
+    $('.convert-normal').unbind();
     $('.convert-normal').click(function() {
         $(this).attr('disabled', true);
         $('#'+currSys).attr('disabled', false);

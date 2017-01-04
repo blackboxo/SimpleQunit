@@ -15,18 +15,34 @@
             function prec(a, b, expected) {
                 assert.equal(precedence(a, b), expected);
             }
-
-            prec('+', '1', true);
-            prec('1', '+', false);
-            prec('1', '1', true);
+            prec('+', '%', true);
+            prec('%', '+', false);
+            prec('%', '%', true);
         });
         QUnit.test("display", function (assert) {
             function dis(value, expected) {
                 $('#'+value).trigger("click");
                 assert.equal($('#main').text(), expected);
             }
+            dis(1,1);
+            dis("x",1);
+            dis("x",1);
             dis(3,3);
-
+            dis('-',3);
+            dis(2,2);
+            dis(2,22);
+            dis("←",2);
+            dis("equal",1);
+            dis("equal",-1);
+            dis('C',0);
+            dis('±',0);
+            dis("CE",0);
+            dis("hex",0);
+            dis(3,3);
+            dis(3,33);
+            dis(3,333);
+            dis(3,3333);
+            dis(3,3333);
         });
     </script>
 </head>
@@ -149,7 +165,7 @@
                 <button id="☆" disabled class="btn-mark">☆</button>
             </td>
             <td>
-                <button id="=" class="btn-mark">=</button>
+                <button id="equal" class="btn-mark">=</button>
             </td>
         </table>
     </div>
