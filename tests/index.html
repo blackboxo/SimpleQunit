@@ -19,6 +19,7 @@
             prec('%', '+', false);
             prec('%', '%', true);
         });
+
         QUnit.test("display", function (assert) {
             function dis(value, expected) {
                 $('#'+value).trigger("click");
